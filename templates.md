@@ -6,7 +6,7 @@ If the user asks to summarize without saving, provide the final synthesis in cha
 
 ## Save Location
 
-Save two Markdown files under `docs/challenge-master/` in the current Claude Code workspace root. If no workspace or project root is clear, ask the user for a target directory before saving.
+Save two Markdown files under `docs/challenge-master/` in the current agent workspace root. If no workspace or project root is clear, ask the user for a target directory before saving.
 
 Use filenames:
 

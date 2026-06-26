@@ -44,7 +44,7 @@ After editing, verify installation locally:
 ./install.sh
 ```
 
-Then restart Claude Code and try:
+Then restart your agent client and try:
 
 ```text
 来活儿了挑战大师：我想做一个用户分层功能

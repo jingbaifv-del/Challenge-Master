@@ -13,8 +13,11 @@ labels: ["question"]
 
 ## How did you install the skill?
 
-- [ ] Global install with `./install.sh`
+- [ ] Claude Code with `./install.sh --claude`
+- [ ] Codex / Agents-style with `./install.sh --codex`
+- [ ] Claw with `./install.sh --claw`
 - [ ] Project install with `./install.sh --project`
+- [ ] Custom target with `./install.sh --target`
 - [ ] Manual copy
 
 ## Trigger message used
@@ -25,6 +28,6 @@ labels: ["question"]
 
 ## Environment
 
-- Claude Code version:
+- Agent client and version:
 - OS:
 

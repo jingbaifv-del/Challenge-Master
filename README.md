@@ -1,6 +1,6 @@
 # Challenge Master Skill
 
-`challenge-master` 是一个 Claude Code skill，用于把一句粗糙需求变成多角色脑暴讨论。
+`challenge-master` 是一个兼容 Claude Code、Codex 和 Claw 的 agent skill，用于把一句粗糙需求变成多角色脑暴讨论。
 
 触发口令：
 
@@ -134,7 +134,7 @@ Codex、Claw 或项目本地安装分别改用 `--codex`、`--claw`、`--project
 
 ## 使用方式
 
-在 Claude Code 里输入：
+在已安装的 agent 客户端里输入：
 
 ```text
 来活儿了挑战大师：我想做一个用户分层功能
