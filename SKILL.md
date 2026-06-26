@@ -125,23 +125,27 @@ Blocking unknowns: target user, core problem, core metric/business goal, decisio
 
 ## Role Speaking Format
 
-When a role speaks, use this structure:
+When a role speaks, wrap the role's view and direct challenges in one Markdown card for readability. Use blockquote cards instead of HTML so the output works in Claude Code, Codex, Claw, GitHub, and plain Markdown viewers.
+
+Use this structure:
 
 ```markdown
-### <角色名>
-- 核心判断：...
-- 支持理由：...
-- 这条判断的风险/边界：...
-- 想追问的问题：...
-
-#### 其他角色对这段观点的挑战
-- <挑战角色名>：...
-- <挑战角色名>：...
+> **<角色名>**
+> - 核心判断：...
+> - 支持理由：...
+> - 这条判断的风险/边界：...
+> - 想追问的问题：...
+>
+> **其他角色对这段观点的挑战**
+> - <挑战角色名>：...
+> - <挑战角色名>：...
 ```
 
-Only include `其他角色对这段观点的挑战` when another role has a direct challenge to this role's view. Attach each challenge under the specific view being challenged, not inside the challenger's own section.
+Each confirmed role gets one card. Only include `其他角色对这段观点的挑战` inside a card when another role has a direct challenge to that role's view. Attach each challenge under the specific view being challenged, not inside the challenger's own card.
 
-Use the confirmed roles as the main panel. Bring in an extra role only when the discussion exposes a major missing perspective, and explain why the extra role is joining.
+Keep the card compact: target 5-10 lines per card. Avoid long nested lists, tables, or decorative separators. If a role needs more detail, ask whether the user wants to expand that role instead of making every card longer. If a role has no challenge, omit the challenge subsection but keep the role card.
+
+Use the confirmed roles as the main panel. Bring in an extra role only when the discussion exposes a major missing perspective, explain why the extra role is joining, and give that role its own card.
 
 ## Round Summary
 
