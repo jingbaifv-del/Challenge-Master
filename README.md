@@ -23,39 +23,71 @@
 
 ```text
 challenge-master/
-├── SKILL.md      # 轻量主流程，默认加载
-├── roles.md      # 完整角色库，需要时读取
-├── templates.md  # 输出文档模板，收敛保存时读取
-├── install.sh    # 安装脚本
-├── README.md
+├── SKILL.md        # 轻量主流程，默认加载
+├── roles.md        # 完整角色库，需要时读取
+├── templates.md    # 输出文档模板，收敛保存时读取
+├── install.sh      # 多平台安装脚本
+├── README.md       # 使用说明
+├── CHANGELOG.md    # 版本变化
+├── CONTRIBUTING.md # 贡献说明
 └── examples/
 ```
 
-`SKILL.md` 只保留触发、流程、角色速查和质量规则；完整角色定义和模板拆到独立文件，减少首次触发时的上下文负担。
+`SKILL.md` 只保留触发、流程、角色速查和质量规则；完整角色定义和模板拆到独立文件，减少首次触发时的上下文负担。安装脚本会复制上述运行和维护所需文件到目标 skill 目录。
 
 ## 安装
 
-### 全局安装
+### Claude Code
 
 适合希望在所有 Claude Code 项目里都能使用：
 
 ```bash
 git clone https://github.com/jingbaifv-del/Challenge-Master.git
 cd Challenge-Master
-./install.sh
+./install.sh --claude
 ```
 
-等价手动安装：
+不传参数时默认等价于 `./install.sh --claude`，安装到：
+
+```text
+~/.claude/skills/challenge-master
+```
+
+### Codex / Agents-style 客户端
+
+适合支持 `~/.agents/skills/` 目录的 Codex 或 Agents-style 客户端：
 
 ```bash
 git clone https://github.com/jingbaifv-del/Challenge-Master.git
-mkdir -p ~/.claude/skills/challenge-master
-cp -R Challenge-Master/* ~/.claude/skills/challenge-master/
+cd Challenge-Master
+./install.sh --codex
+```
+
+安装到：
+
+```text
+~/.agents/skills/challenge-master
+```
+
+### Claw
+
+适合 Claw 客户端：
+
+```bash
+git clone https://github.com/jingbaifv-del/Challenge-Master.git
+cd Challenge-Master
+./install.sh --claw
+```
+
+安装到：
+
+```text
+~/.claw/skills/challenge-master
 ```
 
 ### 项目本地安装
 
-适合只想在当前项目使用：
+适合只想在当前 Claude Code 项目使用：
 
 ```bash
 git clone https://github.com/jingbaifv-del/Challenge-Master.git
@@ -63,32 +95,35 @@ cd Challenge-Master
 ./install.sh --project /path/to/your/project
 ```
 
-等价手动安装：
+安装到：
+
+```text
+/path/to/your/project/.claude/skills/challenge-master
+```
+
+### 自定义安装目录
+
+如果你的客户端使用其他 skill 目录，可以直接指定目标路径：
 
 ```bash
-mkdir -p /path/to/your/project/.claude/skills/challenge-master
-cp -R Challenge-Master/* /path/to/your/project/.claude/skills/challenge-master/
+./install.sh --target /custom/skills/challenge-master
 ```
 
 ### 更新已有安装
 
-```bash
-cd Challenge-Master
-git pull
-./install.sh
-```
-
-如果是项目本地安装：
+进入本仓库目录后拉取最新代码，再按原平台重新执行安装命令：
 
 ```bash
 cd Challenge-Master
 git pull
-./install.sh --project /path/to/your/project
+./install.sh --claude
 ```
+
+Codex、Claw 或项目本地安装分别改用 `--codex`、`--claw`、`--project /path/to/your/project`。
 
 ### 验证是否生效
 
-重启 Claude Code 后输入：
+重启对应的 agent 客户端后输入：
 
 ```text
 来活儿了挑战大师：我想做一个用户分层功能
