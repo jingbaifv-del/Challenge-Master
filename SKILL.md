@@ -105,6 +105,10 @@ If role selection is obvious from the quick map below, use it directly. If the t
 - `品牌市场经理`: checks positioning, messaging, trust, channel, and brand fit.
 - `内容策略专家`: checks content supply, narrative, distribution, and attention loops.
 - `一线执行代表`: checks actual execution burden, exceptions, training, and ownership.
+- `张一鸣`: checks systems thinking, data feedback loops, incentives, organization, and long-term compounding.
+- `马斯克`: checks first principles, cost structure, requirement deletion, speed, and execution bottlenecks.
+- `乔布斯`: checks focus, taste, end-to-end experience, product simplicity, and emotional resonance.
+- `特朗普`: checks leverage, negotiation, attention, narrative framing, and power dynamics.
 
 ## Clarification Mode
 

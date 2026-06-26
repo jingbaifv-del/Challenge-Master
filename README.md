@@ -77,6 +77,15 @@ docs/challenge-master/YYYY-MM-DD-主题-requirement-card.md
 - 向老板汇报前预演
 - 粗想法变成可执行需求卡片
 
+## 外部角色来源
+
+可选角色中的 `张一鸣`、`马斯克`、`乔布斯`、`特朗普` 是对以下 MIT-licensed skills 的轻量改编，只保留为 Challenge Master 角色视角，不复制原技能全文：
+
+- 张一鸣：https://github.com/alchaincyf/zhang-yiming-skill
+- 马斯克：https://github.com/alchaincyf/elon-musk-skill
+- 乔布斯：https://github.com/alchaincyf/steve-jobs-skill
+- 特朗普：https://github.com/alchaincyf/trump-skill
+
 ## 不适合场景
 
 - 已经明确要直接写代码的任务

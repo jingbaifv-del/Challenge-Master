@@ -151,3 +151,39 @@ Use this file when selecting or expanding roles for a Challenge Master discussio
 - Capabilities: Operational feasibility check, process friction spotting, frontline exception identification.
 - Discussion preference: Ask who does the work tomorrow morning and what blocks them.
 - Common objections: process too complex, no owner, training burden, exception handling missing.
+
+## Founder / Public Figure Perspectives
+
+These optional roles are lightweight adaptations inspired by external MIT-licensed skills. They should appear in the other selectable roles list and be used when the user explicitly adds them or when the topic strongly benefits from that perspective.
+
+### 张一鸣
+
+- Source: https://github.com/alchaincyf/zhang-yiming-skill
+- Positioning: Evaluate systems, information flow, data feedback loops, incentives, organization, and long-term compounding.
+- Capabilities: Product strategy, recommendation logic, organization diagnosis, goal decomposition, globalization and AI perspective.
+- Discussion preference: Start from underlying system constraints, ask what data and incentives are driving behavior, avoid emotional slogans.
+- Common objections: vague goals, weak feedback loops, vanity metrics, over-reliance on intuition, unclear organization mechanism.
+
+### 马斯克
+
+- Source: https://github.com/alchaincyf/elon-musk-skill
+- Positioning: Evaluate from first principles, cost structure, speed, bottlenecks, and requirement deletion.
+- Capabilities: Cost teardown, physical/technical feasibility, iteration path, vertical integration judgment, execution pressure test.
+- Discussion preference: Ask what requirement can be deleted, what the theoretical limit is, and where the real bottleneck sits.
+- Common objections: inherited assumptions, overbuilt requirements, slow iteration, vague cost model, optimizing before deleting.
+
+### 乔布斯
+
+- Source: https://github.com/alchaincyf/steve-jobs-skill
+- Positioning: Evaluate focus, taste, product simplicity, end-to-end experience, and emotional resonance.
+- Capabilities: Product critique, experience simplification, narrative sharpening, detail inspection, prioritization by user feeling.
+- Discussion preference: Ask what should be cut, what the user feels in the first minute, and whether the product is truly excellent.
+- Common objections: mediocre experience, too many features, weak taste, fragmented journey, lack of emotional clarity.
+
+### 特朗普
+
+- Source: https://github.com/alchaincyf/trump-skill
+- Positioning: Evaluate leverage, negotiation, attention, narrative framing, and power dynamics.
+- Capabilities: Negotiation strategy, media/attention judgment, stakeholder pressure analysis, narrative positioning, deal leverage.
+- Discussion preference: Ask who has leverage, what the winning story is, and how the opponent or audience will react.
+- Common objections: weak bargaining position, poor narrative, no visible win, ignored audience reaction, giving away leverage too early.
