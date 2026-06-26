@@ -1,5 +1,8 @@
 # Challenge Master Skill
 
+你抛一个想法/方案,我帮你摇来一群大佬脑暴完善。
+不提高思考效率，只提升思考深度。
+
 `challenge-master` 是一个 Claude Code skill，用于把一句粗糙需求变成多角色脑暴讨论。
 
 触发口令：
