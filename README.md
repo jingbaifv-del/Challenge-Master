@@ -14,11 +14,13 @@
 ## 能做什么
 
 - 先澄清目标用户、核心问题、业务指标和约束。
-- 内置更大的职能角色库，每次按话题自动推荐 4 个最匹配角色。
+- 按话题自动推荐 4 个最匹配角色，并展示完整可选角色池。
 - 让你确认是否加人或换人，再开始角色讨论。
 - 让角色互相挑战，而不是各说各话。
+- 把挑战挂在被挑战观点下面，减少来回翻阅。
+- 每轮讨论后整理“需要你补充的信息”，方便逐条回应。
 - 允许用户持续插话、补充背景、反驳角色、要求收敛。
-- 结束时输出综合建议，并保存两份文档：脑暴纪要和需求卡片。
+- 结束时输出综合建议，并可保存两份文档：脑暴纪要和需求卡片。
 
 ## 文件结构
 
@@ -27,6 +29,7 @@ challenge-master/
 ├── SKILL.md      # 轻量主流程，默认加载
 ├── roles.md      # 完整角色库，需要时读取
 ├── templates.md  # 输出文档模板，收敛保存时读取
+├── install.sh    # 安装脚本
 ├── README.md
 └── examples/
 ```
@@ -35,19 +38,66 @@ challenge-master/
 
 ## 安装
 
-把整个 `challenge-master` 目录复制到 Claude Code 的 skills 目录：
+### 全局安装
+
+适合希望在所有 Claude Code 项目里都能使用：
 
 ```bash
-mkdir -p ~/.claude/skills
-cp -R challenge-master ~/.claude/skills/challenge-master
+git clone https://github.com/jingbaifv-del/Challenge-Master.git
+cd Challenge-Master
+./install.sh
 ```
 
-如果你想只在某个项目里使用，也可以复制到项目本地：
+等价手动安装：
 
 ```bash
-mkdir -p .claude/skills
-cp -R challenge-master .claude/skills/challenge-master
+git clone https://github.com/jingbaifv-del/Challenge-Master.git
+mkdir -p ~/.claude/skills/challenge-master
+cp -R Challenge-Master/* ~/.claude/skills/challenge-master/
 ```
+
+### 项目本地安装
+
+适合只想在当前项目使用：
+
+```bash
+git clone https://github.com/jingbaifv-del/Challenge-Master.git
+cd Challenge-Master
+./install.sh --project /path/to/your/project
+```
+
+等价手动安装：
+
+```bash
+mkdir -p /path/to/your/project/.claude/skills/challenge-master
+cp -R Challenge-Master/* /path/to/your/project/.claude/skills/challenge-master/
+```
+
+### 更新已有安装
+
+```bash
+cd Challenge-Master
+git pull
+./install.sh
+```
+
+如果是项目本地安装：
+
+```bash
+cd Challenge-Master
+git pull
+./install.sh --project /path/to/your/project
+```
+
+### 验证是否生效
+
+重启 Claude Code 后输入：
+
+```text
+来活儿了挑战大师：我想做一个用户分层功能
+```
+
+如果生效，它会先推荐 4 个角色，并询问你是否要加人或换人。
 
 ## 使用方式
 
@@ -58,6 +108,24 @@ cp -R challenge-master .claude/skills/challenge-master
 ```
 
 Challenge Master 会先识别话题，推荐 4 个最匹配的职能角色，并问你是否要加人或换人。确认角色后，如果想法很粗，会先追问关键问题；如果想法足够清晰，会进入多角色脑暴。
+
+你可以这样回应角色推荐：
+
+```text
+就这样
+```
+
+```text
+加上乔布斯
+```
+
+```text
+把数据分析换成经营负责人
+```
+
+```text
+先问我几个问题
+```
 
 当你想结束讨论时，可以说：
 
@@ -72,37 +140,79 @@ docs/challenge-master/YYYY-MM-DD-主题-brainstorm.md
 docs/challenge-master/YYYY-MM-DD-主题-requirement-card.md
 ```
 
-## 适合场景
+你也可以只要求总结，不保存：
 
-- 产品需求脑暴
-- 方案评审前自检
-- 增长/运营策略讨论
-- 向老板汇报前预演
-- 粗想法变成可执行需求卡片
+```text
+先总结一下，不用保存
+```
 
-## 自有角色简介
+## 示例
 
-Challenge Master 内置一组职能角色，用于覆盖产品、增长、运营、技术、商业化和执行视角：
+### 产品需求脑暴
+
+```text
+来活儿了挑战大师：我想做一个用户分层功能，用来提升首单后用户的复购率
+```
+
+适合输出：目标用户、核心问题、分层是否必要、最小验证方案、运营动作和指标设计。
+
+### 增长策略讨论
+
+```text
+来活儿了挑战大师：我们想提高小游戏频道的每日玩游戏人数，但要保证整体 ROI 为正
+```
+
+适合输出：增长断点、用户分层、成本收益、实验方案和风险边界。
+
+### 方案评审挑战
+
+```text
+来活儿了挑战大师：我准备把首页改成任务流入口，你们帮我挑战一下这个方案
+```
+
+适合输出：支持理由、风险边界、反方挑战、待补充信息和收敛建议。
+
+## 角色选择
+
+Challenge Master 会默认推荐 4 个匹配角色，同时展示完整可选角色。你可以保留、加人或换人。
+
+### 产品与体验
 
 - `产品挑战者`：挑战伪需求、弱目标和方案先行的问题。
 - `方案设计师`：把想法收敛成方案选项、MVP 和验证路径。
 - `产品负责人`：判断战略匹配度、优先级、资源投入和产品方向。
+- `用户研究`：检查用户证据、真实场景、动机和可用性风险。
+- `客服体验`：检查服务质量、升级路径、SLA 和用户信任。
+
+### 增长与运营
+
 - `用户运营`：评估用户分层、生命周期、触达、权益和留存。
 - `增长运营`：评估转化、增长实验、指标拆解和 ROI。
-- `经营负责人`：从业务结果、收入、成本、风险和汇报视角做判断。
-- `用户研究`：检查用户证据、真实场景、动机和可用性风险。
-- `数据分析`：检查指标、基线、归因、分群和实验设计。
-- `技术架构`：检查技术可行性、系统集成、扩展性和维护风险。
-- `业务负责人`：检查业务归属、验收标准、资源取舍和落地责任。
-- `AI 产品`：检查 AI 必要性、可靠性、评估方式和兜底设计。
-- `风控合规`：检查隐私、合规、滥用、权限和审计风险。
-- `客服体验`：检查服务质量、升级路径、SLA 和用户信任。
 - `运营提效`：检查流程节省、SOP 适配、采用阻力和责任人。
+- `内容策略`：检查内容供给、叙事、分发和注意力循环。
+
+### 商业与经营
+
+- `经营负责人`：从业务结果、收入、成本、风险和汇报视角做判断。
+- `业务负责人`：检查业务归属、验收标准、资源取舍和落地责任。
 - `商业化`：检查收入模型、定价、毛利、合作方和商业上限。
 - `财务视角`：检查成本、预算、ROI、回本周期和下行风险。
 - `品牌市场`：检查定位、传播、信任、渠道和品牌一致性。
-- `内容策略`：检查内容供给、叙事、分发和注意力循环。
+
+### 技术与风险
+
+- `数据分析`：检查指标、基线、归因、分群和实验设计。
+- `技术架构`：检查技术可行性、系统集成、扩展性和维护风险。
+- `AI 产品`：检查 AI 必要性、可靠性、评估方式和兜底设计。
+- `风控合规`：检查隐私、合规、滥用、权限和审计风险。
 - `一线执行`：检查真实执行负担、异常处理、培训和落地阻力。
+
+### 外部名人视角
+
+- `张一鸣`：系统、目标、数据、组织、长期主义、信息匹配。
+- `马斯克`：第一性原理、成本拆解、极限效率、删需求、快速迭代。
+- `乔布斯`：产品品味、聚焦、端到端体验、砍复杂度、用户感受。
+- `特朗普`：谈判、杠杆、传播、注意力、强势叙事。
 
 ## 外部角色来源
 
@@ -112,6 +222,23 @@ Challenge Master 内置一组职能角色，用于覆盖产品、增长、运营
 - 马斯克：https://github.com/alchaincyf/elon-musk-skill
 - 乔布斯：https://github.com/alchaincyf/steve-jobs-skill
 - 特朗普：https://github.com/alchaincyf/trump-skill
+
+## 输出文档
+
+当你说“总结一下，形成文档”时，Challenge Master 会保存两份文件：
+
+- `brainstorm.md`：保留原始想法、角色选择、关键澄清、角色观点、挑战、共识、分歧和综合建议。
+- `requirement-card.md`：把讨论收敛成背景、目标用户、核心问题、指标、推荐方案、风险和下一步行动。
+
+保存前如果主题不清楚，Challenge Master 会先问你要用什么短标题。
+
+## 适合场景
+
+- 产品需求脑暴
+- 方案评审前自检
+- 增长/运营策略讨论
+- 向老板汇报前预演
+- 粗想法变成可执行需求卡片
 
 ## 不适合场景
 
