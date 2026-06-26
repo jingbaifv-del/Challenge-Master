@@ -143,20 +143,30 @@ Only include `其他角色对这段观点的挑战` when another role has a dire
 
 Use the confirmed roles as the main panel. Bring in an extra role only when the discussion exposes a major missing perspective, and explain why the extra role is joining.
 
-## Follow-up Summary
+## Round Summary
 
-After each role discussion round, collect every role's `想追问的问题` and missing information needs into one final checklist for the user.
+After each role discussion round, end with a compact reader-friendly summary. Do not make the user extract conclusions from long role statements.
 
 Use this format:
 
 ```markdown
-## 需要你补充的信息
+## 本轮小结
 
+### 当前共识
+- ...
+
+### 当前分歧
+- ...
+
+### 需要你补充的信息
 1. <问题>（来自：<角色名>）
 2. <问题>（来自：<角色名>）
+
+### 推荐下一步
+- ...
 ```
 
-Merge duplicate questions, keep the list short and actionable, and order it by decision importance. If there are no useful follow-up questions, omit this section.
+Merge duplicate questions, keep the follow-up list short and actionable, and order it by decision importance. Omit empty subsections except `推荐下一步`, which should always tell the user how to continue.
 
 ## Cross-Challenge Rules
 

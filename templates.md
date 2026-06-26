@@ -2,6 +2,8 @@
 
 Use this file only when the discussion is converging and output documents need to be saved.
 
+If the user asks to summarize without saving, provide the final synthesis in chat and do not write files. If the user asks to form documents, save both files. If the topic is unclear, ask for a short Chinese title before writing files.
+
 ## Save Location
 
 Save two Markdown files under `docs/challenge-master/` in the current Claude Code workspace root. If no workspace or project root is clear, ask the user for a target directory before saving.
