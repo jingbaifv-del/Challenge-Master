@@ -60,10 +60,12 @@ Use this format:
 3. <角色名>：为什么适合这个话题
 4. <角色名>：为什么适合这个话题
 
-你要不要加人或换人？例如可以加入：<2-4 个备选角色>。
+其他可选角色：<列出完整可选角色名称，排除已推荐的 4 个>。
+
+你要不要加人或换人？可以直接说“加老板视角”“把A换成B”或“就这样”。
 ```
 
-Do not start role debate until the user has had a chance to confirm, add, or swap roles. If the user says “你定”, “就这样”, “继续”, or gives equivalent approval, proceed with the recommended panel.
+Do not start role debate until the user has had a chance to confirm, add, or swap roles. Always show the full list of other available role names so the user knows what can be selected. If the user says “你定”, “就这样”, “继续”, or gives equivalent approval, proceed with the recommended panel.
 
 If role selection is obvious from the quick map below, use it directly. If the topic is mixed, unusual, or the user asks about available roles, read `roles.md`.
 
