@@ -34,17 +34,31 @@ If the trigger appears without a concrete idea, ask the user to describe the ide
 
 1. Acknowledge that Challenge Master mode is active.
 2. Extract the initial idea from the user's message.
-3. Identify the topic type, such as product feature, growth strategy, operations, AI, data, monetization, risk, customer service, platform, content, or internal process.
-4. Recommend exactly 4 roles that best match the topic.
-5. Ask the user to confirm the 4 roles or add/swap roles before discussion.
-6. Judge idea maturity:
+3. If the idea includes a link and the discussion depends on it, resolve the link first when a suitable local tool is available.
+4. Identify the topic type, such as product feature, growth strategy, operations, AI, data, monetization, risk, customer service, platform, content, or internal process.
+5. Recommend exactly 4 roles that best match the topic.
+6. Ask the user to confirm the 4 roles or add/swap roles before discussion.
+7. Judge idea maturity:
    - If rough, ask clarifying questions before role debate.
    - If clear enough, enter role debate directly.
-7. Facilitate multi-role discussion with the confirmed roles.
-8. Let the user participate continuously: ask for missing context, allow pushback, and let the user request deeper discussion from any role.
-9. Continue until the user asks to summarize, form documents, stop, or converge.
-10. Before saving, provide a final synthesis in chat.
-11. When saving, read `templates.md` and save both output documents under `docs/challenge-master/`.
+8. Facilitate multi-role discussion with the confirmed roles.
+9. Let the user participate continuously: ask for missing context, allow pushback, and let the user request deeper discussion from any role.
+10. Continue until the user asks to summarize, form documents, stop, or converge.
+11. Before saving, provide a final synthesis in chat.
+12. When saving, read `templates.md` and save both output documents under `docs/challenge-master/`.
+
+## Link Context Rules
+
+If the user's idea includes a link and the discussion depends on that link, resolve the link before role recommendation when possible. Do not immediately say the link is inaccessible.
+
+Identify the link type first:
+
+- Feishu / Lark links: use the available Feishu/Lark tool or CLI if installed.
+- GitHub links: use `gh` or the available GitHub tool.
+- Public webpages: use WebFetch/WebSearch when available.
+- Other private or authenticated links: check whether a matching MCP, CLI, or skill exists.
+
+Only ask the user to paste content when no suitable tool exists, authentication fails, permission is missing, or fetching fails.
 
 ## Role Recommendation
 
@@ -76,6 +90,8 @@ If role selection is obvious from the quick map below, use it directly. If the t
 
 ## Quick Role Map
 
+This abbreviated map is duplicated here for common cases so the skill can recommend roles without loading `roles.md`. `roles.md` remains the source of truth for the full role library and detailed role definitions.
+
 | Topic | Strong default roles |
 | --- | --- |
 | New product feature | 产品挑战者, 方案设计师, 产品负责人, 用户研究 |
@@ -90,6 +106,8 @@ If role selection is obvious from the quick map below, use it directly. If the t
 | Internal efficiency / workflow | 运营提效, 技术架构, 一线执行, 产品负责人 |
 
 ## Role Quick Definitions
+
+These are abbreviated mirrors for fast selection. Read `roles.md` when a role's full positioning, capabilities, discussion preference, or objections are needed.
 
 - `产品挑战者`: challenges fake needs, weak goals, and solution-first thinking.
 - `方案设计师`: turns ideas into options, trade-offs, MVPs, and validation paths.
@@ -125,52 +143,80 @@ Blocking unknowns: target user, core problem, core metric/business goal, decisio
 
 ## Role Speaking Format
 
-When a role speaks, wrap the role's view and direct challenges in one Markdown card for readability. Use blockquote cards instead of HTML so the output works in Claude Code, Codex, Claw, GitHub, and plain Markdown viewers.
+Default to compact briefing cards. Role cards are for scanning and locating viewpoints, not for full analysis. Use headings, bold labels, and short bullets; avoid blockquotes, ASCII boxes, tables, decorative separators, and blank lines inside a role card.
 
 Use this structure:
 
 ```markdown
-> **<角色名>**
-> - 核心判断：...
-> - 支持理由：...
-> - 这条判断的风险/边界：...
-> - 想追问的问题：...
->
-> **其他角色对这段观点的挑战**
-> - <挑战角色名>：...
-> - <挑战角色名>：...
+### <角色名>｜<本卡关键词>
+**判断：** ...
+- 理由：...
+- 风险：...
+- 追问：...
+- 可展开：...
 ```
 
-Each confirmed role gets one card. Only include `其他角色对这段观点的挑战` inside a card when another role has a direct challenge to that role's view. Attach each challenge under the specific view being challenged, not inside the challenger's own card.
+Each confirmed role gets one compact card by default. Target 5 lines per role card. Keep each line concise and decision-oriented. On the initial pass, this compact format takes precedence over verbose role discussion preferences in `roles.md`; use the full role preference only when the user asks to expand.
 
-Keep the card compact: target 5-10 lines per card. Avoid long nested lists, tables, or decorative separators. If a role needs more detail, ask whether the user wants to expand that role instead of making every card longer. If a role has no challenge, omit the challenge subsection but keep the role card.
+Stable fields:
 
-Use the confirmed roles as the main panel. Bring in an extra role only when the discussion exposes a major missing perspective, explain why the extra role is joining, and give that role its own card.
+- `判断`: one sharp core view from this role.
+- `理由`: the strongest reason, not a full argument.
+- `风险`: the main risk or boundary; if none, write `无明显风险`.
+- `追问`: the role's blocking question; if none, write `无`.
+- `可展开`: 2-4 directions the user can ask to expand, such as `指标树、AB 方案、ROI 口径`.
+
+If another role directly challenges this view, include the challenge only when it is essential for understanding the disagreement:
+
+```markdown
+- 挑战：<挑战角色名>认为...
+```
+
+Use the confirmed roles as the main panel. Bring in an extra role only when the discussion exposes a major missing perspective, explain why the extra role is joining, and give that role its own compact card.
+
+## Expandable Detail Rules
+
+Do not pack all detail into the first response. Use compact cards as an index, then expand only when the user asks for more depth.
+
+Users may ask:
+
+- `展开增长运营`
+- `展开数据分析的归因方案`
+- `让产品负责人和增长运营继续辩一轮`
+
+When expanding, use a longer structure with: detailed judgment, supporting reasoning, options, risks/boundaries, response to other roles, and the next blocking question.
 
 ## Round Summary
 
-After each role discussion round, end with a compact reader-friendly summary. Do not make the user extract conclusions from long role statements.
+After each role discussion round, end with a compact but substantive summary. Role cards can be short, but the summary must preserve the converged thinking.
 
 Use this format:
 
 ```markdown
 ## 本轮小结
-
-### 当前共识
+**当前共识：**
+- ...
 - ...
 
-### 当前分歧
-- ...
+**当前分歧：**
+- <角色A> vs <角色B>：...
+- <角色A> vs 多角色：...
 
-### 需要你补充的信息
+**需要你补充：**
 1. <问题>（来自：<角色名>）
 2. <问题>（来自：<角色名>）
 
-### 推荐下一步
+**推荐下一步：**
 - ...
 ```
 
-Merge duplicate questions, keep the follow-up list short and actionable, and order it by decision importance. Omit empty subsections except `推荐下一步`, which should always tell the user how to continue.
+Summary rules:
+
+- `当前共识` should be complete enough to preserve the reasoning. Use full bullets, not a single compressed sentence.
+- `当前分歧` must never be merged into one long sentence. Use one bullet per disagreement, and name the sides with `<角色A> vs <角色B>` or `<角色A> vs 多角色`.
+- Every non-`无` item from role-card `追问` fields must appear in `需要你补充`. Merge duplicate questions, keep only questions that block the next round, and order them by decision importance. When merging questions from multiple roles, list all contributing roles, such as `（来自：增长运营、数据分析）`.
+- Do not invent extra summary sections such as `我的阶段判断`; the speaker becomes ambiguous.
+- Omit empty subsections except `推荐下一步`, which should always tell the user how to continue.
 
 ## Cross-Challenge Rules
 
