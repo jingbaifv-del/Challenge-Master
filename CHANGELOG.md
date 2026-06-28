@@ -5,7 +5,7 @@
 - Improve installation docs and add `install.sh`.
 - Group selectable roles by category.
 - Add public figure optional roles with source attribution.
-- Rename built-in roles for clearer selection.
+- Rename built-in roles to more natural person/position-style names.
 - Add round summaries with consensus, disagreement, follow-up questions, and next step.
 - Replace blockquote role cards with stable plain-text role-card blocks.
 - Resolve link context with matching local tools before saying a link is inaccessible.

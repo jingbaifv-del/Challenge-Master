@@ -94,16 +94,16 @@ This abbreviated map is duplicated here for common cases so the skill can recomm
 
 | Topic | Strong default roles |
 | --- | --- |
-| New product feature | 产品挑战者, 方案设计师, 产品负责人, 用户研究 |
-| Growth or conversion | 增长运营, 数据分析, 用户运营, 经营负责人 |
-| User operations | 用户运营, 用户研究, 增长运营, 产品挑战者 |
-| AI feature or agent | AI 产品, 技术架构, 数据分析, 风控合规 |
-| Customer service / bot | 客服体验, AI 产品, 运营提效, 风控合规 |
-| Data dashboard / metrics | 数据分析, 业务负责人, 产品负责人, 方案设计师 |
-| Monetization / business model | 商业化, 经营负责人, 增长运营, 产品挑战者 |
-| Risk / compliance / finance | 风控合规, 财务视角, 经营负责人, 技术架构 |
-| Content / creator / media | 内容策略, 用户研究, 增长运营, 品牌市场 |
-| Internal efficiency / workflow | 运营提效, 技术架构, 一线执行, 产品负责人 |
+| New product feature | 产品挑战者, 方案设计师, 产品负责人, 用户研究员 |
+| Growth or conversion | 增长负责人, 数据分析师, 用户运营专家, 经营负责人 |
+| User operations | 用户运营专家, 用户研究员, 增长负责人, 产品挑战者 |
+| AI feature or agent | AI 产品经理, 技术架构师, 数据分析师, 风控合规专家 |
+| Customer service / bot | 客服体验负责人, AI 产品经理, 运营效率专家, 风控合规专家 |
+| Data dashboard / metrics | 数据分析师, 业务负责人, 产品负责人, 方案设计师 |
+| Monetization / business model | 商业化负责人, 经营负责人, 增长负责人, 产品挑战者 |
+| Risk / compliance / finance | 风控合规专家, 财务负责人, 经营负责人, 技术架构师 |
+| Content / creator / media | 内容策略专家, 用户研究员, 增长负责人, 品牌市场负责人 |
+| Internal efficiency / workflow | 运营效率专家, 技术架构师, 一线执行代表, 产品负责人 |
 
 ## Role Quick Definitions
 
@@ -112,22 +112,22 @@ These are abbreviated mirrors for fast selection. Read `roles.md` when a role's 
 - `产品挑战者`: challenges fake needs, weak goals, and solution-first thinking.
 - `方案设计师`: turns ideas into options, trade-offs, MVPs, and validation paths.
 - `产品负责人`: judges strategy fit, priority, resources, and product direction.
-- `用户运营`: evaluates segmentation, lifecycle, touchpoints, benefits, and retention.
-- `增长运营`: evaluates conversion, growth experiments, metrics, and ROI.
+- `用户运营专家`: evaluates segmentation, lifecycle, touchpoints, benefits, and retention.
+- `增长负责人`: evaluates conversion, growth experiments, metrics, and ROI.
 - `经营负责人`: evaluates business outcome, revenue, cost, risk, and executive story.
-- `用户研究`: checks user evidence, real scenarios, motivation, and usability risk.
-- `数据分析`: checks metrics, baselines, attribution, cohorts, and experiment design.
-- `技术架构`: checks feasibility, integrations, scalability, and maintenance risk.
+- `用户研究员`: checks user evidence, real scenarios, motivation, and usability risk.
+- `数据分析师`: checks metrics, baselines, attribution, cohorts, and experiment design.
+- `技术架构师`: checks feasibility, integrations, scalability, and maintenance risk.
 - `业务负责人`: checks ownership, priority, acceptance criteria, and business trade-offs.
-- `AI 产品`: checks AI necessity, reliability, evaluation, and fallback design.
-- `风控合规`: checks privacy, compliance, abuse, permission, and audit risk.
-- `客服体验`: checks support quality, escalation, SLA, and service recovery.
-- `运营提效`: checks workflow savings, adoption friction, SOP fit, and owners.
-- `商业化`: checks revenue model, pricing, margin, partners, and upside.
-- `财务视角`: checks cost, budget, ROI, payback period, and downside exposure.
-- `品牌市场`: checks positioning, messaging, trust, channel, and brand fit.
-- `内容策略`: checks content supply, narrative, distribution, and attention loops.
-- `一线执行`: checks actual execution burden, exceptions, training, and ownership.
+- `AI 产品经理`: checks AI necessity, reliability, evaluation, and fallback design.
+- `风控合规专家`: checks privacy, compliance, abuse, permission, and audit risk.
+- `客服体验负责人`: checks support quality, escalation, SLA, and service recovery.
+- `运营效率专家`: checks workflow savings, adoption friction, SOP fit, and owners.
+- `商业化负责人`: checks revenue model, pricing, margin, partners, and upside.
+- `财务负责人`: checks cost, budget, ROI, payback period, and downside exposure.
+- `品牌市场负责人`: checks positioning, messaging, trust, channel, and brand fit.
+- `内容策略专家`: checks content supply, narrative, distribution, and attention loops.
+- `一线执行代表`: checks actual execution burden, exceptions, training, and ownership.
 - `张一鸣`: checks systems thinking, data feedback loops, incentives, organization, and long-term compounding.
 - `马斯克`: checks first principles, cost structure, requirement deletion, speed, and execution bottlenecks.
 - `乔布斯`: checks focus, taste, end-to-end experience, product simplicity, and emotional resonance.
@@ -180,9 +180,9 @@ Do not pack all detail into the first response. Use compact cards as an index, t
 
 Users may ask:
 
-- `展开增长运营`
-- `展开数据分析的归因方案`
-- `让产品负责人和增长运营继续辩一轮`
+- `展开增长负责人`
+- `展开数据分析师的归因方案`
+- `让产品负责人和增长负责人继续辩一轮`
 
 When expanding, use a longer structure with: detailed judgment, supporting reasoning, options, risks/boundaries, response to other roles, and the next blocking question.
 
@@ -214,7 +214,7 @@ Summary rules:
 
 - `当前共识` should be complete enough to preserve the reasoning. Use full bullets, not a single compressed sentence.
 - `当前分歧` must never be merged into one long sentence. Use one bullet per disagreement, and name the sides with `<角色A> vs <角色B>` or `<角色A> vs 多角色`.
-- Every non-`无` item from role-card `追问` fields must appear in `需要你补充`. Merge duplicate questions, keep only questions that block the next round, and order them by decision importance. When merging questions from multiple roles, list all contributing roles, such as `（来自：增长运营、数据分析）`.
+- Every non-`无` item from role-card `追问` fields must appear in `需要你补充`. Merge duplicate questions, keep only questions that block the next round, and order them by decision importance. When merging questions from multiple roles, list all contributing roles, such as `（来自：增长负责人、数据分析师）`.
 - Do not invent extra summary sections such as `我的阶段判断`; the speaker becomes ambiguous.
 - Omit empty subsections except `推荐下一步`, which should always tell the user how to continue.
 
@@ -223,10 +223,10 @@ Summary rules:
 After initial role statements, make roles respond to each other. For readability, place each challenge directly below the challenged role's viewpoint.
 
 - 方案设计师 challenges critics to propose a smaller validation path instead of only saying no.
-- 数据分析 challenges any role that makes a claim without measurable evidence.
+- 数据分析师 challenges any role that makes a claim without measurable evidence.
 - 经营负责人 challenges business impact, cost, and risk assumptions.
-- 风控合规 challenges automation, data, incentive, and abuse risk.
-- 一线执行 challenges plans that ignore real operating burden.
+- 风控合规专家 challenges automation, data, incentive, and abuse risk.
+- 一线执行代表 challenges plans that ignore real operating burden.
 
 ## User Participation Rules
 
