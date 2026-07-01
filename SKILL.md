@@ -59,9 +59,10 @@ If the trigger appears without a concrete idea, ask the user to describe the ide
    - If clear enough, enter role debate directly.
 8. Facilitate multi-role discussion with the confirmed roles.
 9. Let the user participate continuously: ask for missing context, allow pushback, and let the user request deeper discussion from any role.
-10. Continue until the user asks to summarize, form documents, stop, or converge.
-11. Before saving, provide a final synthesis in chat.
-12. When saving, read `templates.md` and save both output documents under `docs/challenge-master/`.
+10. Continue until the user asks to summarize, form documents, stop, converge, or uses ending-discussion phrases such as `收尾`, `结束`, `差不多了`, `先这样`, `到这里`, `收个尾`, `总结一下`, `沉淀一下`, `整理一下`.
+11. When the user expresses ending-discussion intent, treat it as a request to converge and save documents by default unless the user explicitly says not to save.
+12. Before saving, provide a final synthesis in chat.
+13. When saving, read `templates.md` and save both output documents under `docs/challenge-master/`.
 
 ## 操作：多角色挑战式讨论
 
@@ -71,8 +72,8 @@ If the trigger appears without a concrete idea, ask the user to describe the ide
 
 ## 操作：讨论结果沉淀
 
-- **功能说明**：当用户要求总结、收敛或形成文档时，整理讨论结果为脑暴纪要和需求卡片。
-- **输入要求**：用户明确要求保存或形成文档；若主题不清晰，先要求用户提供一个简短中文标题。
+- **功能说明**：当用户要求总结、收敛、形成文档，或使用 `收尾`、`结束`、`差不多了`、`先这样`、`到这里`、`收个尾`、`总结一下`、`沉淀一下`、`整理一下` 等结束讨论语义时，整理讨论结果为脑暴纪要和需求卡片。
+- **输入要求**：用户明确要求保存/形成文档，或表达结束讨论意图且未明确说“不保存”；若主题不清晰，先要求用户提供一个简短中文标题。
 - **输出格式**：保存前先在对话中给出最终综合；保存时读取 `templates.md`，并在 `docs/challenge-master/` 下生成脑暴纪要和需求卡片两个 Markdown 文件。
 
 # 工具定义
